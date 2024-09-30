@@ -48,7 +48,9 @@ For XVF3510-UA and XVF361x-UA devices these actions will be done as well:
 
 ## Setup
 
-1. First, obtain the required version of the Raspberry Pi operating system, which is available [here](https://downloads.raspberrypi.org/raspios_armhf/images/raspios_armhf-2023-02-22/2023-02-21-raspios-bullseye-armhf.img.xz)
+1. First, obtain the required version of the Raspberry Pi operating system, either old Rasbian Bullseye, which is available [here](https://downloads.raspberrypi.org/raspios_armhf/images/raspios_armhf-2023-02-22/2023-02-21-raspios-bullseye-armhf.img.xz)
+
+   Or, the new (2024) Rasbian Bookworm (recommended), which is avialable [here](https://downloads.raspberrypi.org/raspios_armhf/images/raspios_armhf-2024-07-04/2024-07-04-raspios-bookworm-armhf.img.xz)
 
    Then, install the Raspberry Pi Imager on a host computer. Raspberry Pi Imager is available [here](https://www.raspberrypi.org/software/)
 
