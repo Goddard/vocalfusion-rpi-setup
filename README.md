@@ -128,7 +128,7 @@ For XVF3510-UA and XVF361x-UA devices these actions will be done as well:
 
    ```./setup.sh xvf3800-intdev```
 
-   For XVF3800-INTHOST devices, run the installation script as follows:
+   For XVF3800-INTHOST devices, (NOT AVAILABLE), run the installation script as follows:
 
    ```./setup.sh xvf3800-inthost```
 
