@@ -105,20 +105,32 @@ case $XMOS_DEVICE in
   ;;
 esac
 
+## Determine if Raspbian is using the new Bookworm location '/boot/firmware/config.txt'
+if [[ -f /boot/firmware/config.txt ]]; then
+  FIRMWARE_PATH=/boot/firmware/config.txt
+else
+  FIRMWARE_PATH=/boot/config.txt
+fi
+
+echo "Firmware path:" $FIRMWARE_PATH 
+echo "Applying edits to config.txt..."
+
 # Disable the built-in audio output so there is only one audio
 # device in the system
-sudo sed -i -e 's/^dtparam=audio=on/#dtparam=audio=on/' /boot/config.txt
+sudo sed -i -e 's/^dtparam=audio=on/#dtparam=audio=on/' $FIRMWARE_PATH
 
 # Enable the i2s device tree
-sudo sed -i -e 's/#dtparam=i2s=on/dtparam=i2s=on/' /boot/config.txt
+sudo sed -i -e 's/#dtparam=i2s=on/dtparam=i2s=on/' $FIRMWARE_PATH
+
+echo "Enabling i2c stuff..."
 
 # Enable the I2C device tree
 sudo raspi-config nonint do_i2c 1
 sudo raspi-config nonint do_i2c 0
 
 # Set the I2C baudrate to 100k
-sudo sed -i -e '/^dtparam=i2c_arm_baudrate/d' /boot/config.txt
-sudo sed -i -e 's/dtparam=i2c_arm=on$/dtparam=i2c_arm=on\ndtparam=i2c_arm_baudrate=100000/' /boot/config.txt
+sudo sed -i -e '/^dtparam=i2c_arm_baudrate/d' $FIRMWARE_PATH
+sudo sed -i -e 's/dtparam=i2c_arm=on$/dtparam=i2c_arm=on\ndtparam=i2c_arm_baudrate=100000/' $FIRMWARE_PATH
 
 # Enable the SPI support
 sudo raspi-config nonint do_spi 1
