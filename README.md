@@ -70,6 +70,8 @@ For XVF3510-UA and XVF361x-UA devices these actions will be done as well:
    ```
    sudo sh -c "echo 'arm_64bit=0' >> /boot/config.txt"
    sudo reboot
+   sudo apt-get install --reinstall raspberrypi-bootloader raspberrypi-kernel
+   sudo reboot
    ```
 
    and wait for the Raspberry Pi to reboot.
